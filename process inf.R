@@ -1,7 +1,7 @@
 #' Process Inf values and outliers in a standardized drought index series
 #'
 #' This function processes a standardized drought index series by:
-#' 1. Optionally truncating outliers based on a specified standard deviation unit.
+#' 1. Optionally truncating outliers based on a specified standard deviation.
 #' 2. Replacing `Inf` and `-Inf` values according to the 99th and 1st percentiles.
 #'
 #' @param series Numeric vector representing the drought index series.
@@ -64,4 +64,5 @@ process_inf <- function(series, frequency = 12, range = NULL) {
   
   return(series)
 }
+
 
