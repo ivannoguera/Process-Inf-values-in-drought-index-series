@@ -5,14 +5,14 @@
 #' 2. Replacing `Inf` and `-Inf` values according to the 99th and 1st percentiles.
 #'
 #' @param series Numeric vector representing the drought index series.
-#' @param frequency Integer. Number of observations per year (e.g., 12 for monthly series). Default is 12.
+#' @param frequency Integer. Number of observations per year (e.g., frequency=12 for monthly series). Default is 12.
 #' @param range Numeric or NULL. If specified, finite values higher than `range` are set to `range`
-#'   and values lower than `-range` are set to `-range`. Default is NULL.
+#'   and values lower than `-range` are set to `-range` (e.g., range=4 to limit the range of the series to [-4, 4]). Default is NULL.
 #'
 #' @return Numeric vector with processed series, where Inf/-Inf are replaced and optional truncation is applied.
 #'
 #' @examples
-#' # Process monthly series with truncation at +/-4
+#' # Process monthly series with truncation at +/-4 (i.e., 4 standard deviation)
 #' process_inf(series, frequency = 12, range = 4)
 #'
 #' @export
@@ -64,6 +64,7 @@ process_inf <- function(series, frequency = 12, range = NULL) {
   
   return(series)
 }
+
 
 
 
